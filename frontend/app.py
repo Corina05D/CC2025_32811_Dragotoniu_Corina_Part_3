@@ -35,7 +35,6 @@ if missing:
 REDIRECT_URI = REDIRECT_URI.rstrip("/")
 redirect_enc = urllib.parse.quote(REDIRECT_URI, safe="")
 
-
 AUTH_URL = (
     f"{COGNITO_DOMAIN}/oauth2/authorize"
     f"?client_id={COGNITO_CLIENT_ID}"
