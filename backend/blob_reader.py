@@ -12,7 +12,7 @@ HISTORICAL_PREFIX = os.getenv("HISTORICAL_PREFIX", "by-timestamp/").rstrip("/") 
 
 def _get_container_client():
     if not AZURE_STORAGE_CONNECTION_STRING or not AZURE_BLOB_CONTAINER:
-        raise RuntimeError("Missing AZURE_STORAGE_CONNECTION_STRING or AZURE_BLOB_CONTAINER")
+        raise RuntimeError("Missing AZURE_STORAGE_CONNECTION_STRING or AZURE_BLOB_CONTAINER .......")
 
     service = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
     return service.get_container_client(AZURE_BLOB_CONTAINER)
