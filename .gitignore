@@ -1,0 +1,10 @@
+# Python / backend
+__pycache__/
+*.pyc
+
+# Frontend (Streamlit)
+frontend/.venv/
+backend/.venv/
+
+# Environment / variabile secrete
+*.env
