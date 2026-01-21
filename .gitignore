@@ -8,3 +8,8 @@ backend/.venv/
 
 # Environment / variabile secrete
 *.env
+
+.env
+**/.env
+.streamlit/secrets.toml
+**/.streamlit/secrets.toml
