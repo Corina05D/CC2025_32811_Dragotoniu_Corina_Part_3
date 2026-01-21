@@ -1,5 +1,4 @@
 name: Deploy Full Stack to Azure
-
 on:
   push:
     branches: ["main"]
@@ -13,18 +12,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Zip backend for deployment
-        run: |
-          cd backend
-          zip -r ../backend-package.zip .
-
+      
       - name: Deploy Backend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-backend'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
-          package: ./backend-package.zip
+          package: ./backend
 
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -32,15 +26,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Zip frontend for deployment
-        run: |
-          cd frontend
-          zip -r ../frontend-package.zip .
-
+      
       - name: Deploy Frontend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-frontend'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
-          package: ./frontend-package.zip
+          package: ./frontend
