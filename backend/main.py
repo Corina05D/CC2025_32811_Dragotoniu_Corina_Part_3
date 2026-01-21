@@ -27,7 +27,6 @@ async def log_requests(request: Request, call_next):
     resp = await call_next(request)
     return resp
 
-
 def fake_user():
     return {"email": "local@test.com", "role": "admin", "device_id": "E-001"}
 @app.get("/api/profile")

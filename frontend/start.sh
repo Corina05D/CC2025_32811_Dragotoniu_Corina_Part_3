@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing frontend requirements..."
-pip install -r requirements.txt
+#pip install -r requirements.txt
 
 # fallback port dacă $PORT nu e setat
 export PORT=${PORT:-8501}

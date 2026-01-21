@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pip install -r requirements.txt
+#pip install -r requirements.txt
 
 export PORT=${PORT:-8000}
 
