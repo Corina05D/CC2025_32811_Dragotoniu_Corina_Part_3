@@ -6,7 +6,6 @@ from azure.storage.blob import BlobServiceClient
 AZURE_STORAGE_CONNECTION_STRING = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
 AZURE_BLOB_CONTAINER = os.getenv("AZURE_BLOB_CONTAINER")
 
-
 LATEST_PREFIX = os.getenv("LATEST_PREFIX", "latest/").rstrip("/") + "/"
 HISTORICAL_PREFIX = os.getenv("HISTORICAL_PREFIX", "by-timestamp/").rstrip("/") + "/"
 
