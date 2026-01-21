@@ -13,13 +13,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install backend dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: Zip backend for deployment
+        run: |
+          cd backend
+          zip -r ../backend-package.zip .
+
       - name: Deploy Backend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-backend'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
-          package: ./backend
+          package: ./backend-package.zip
 
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -27,10 +44,27 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install frontend dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r frontend/requirements.txt
+
+      - name: Zip frontend for deployment
+        run: |
+          cd frontend
+          zip -r ../frontend-package.zip .
+
       - name: Deploy Frontend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-frontend'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
-          package: ./frontend
+          package: ./frontend-package.zip
