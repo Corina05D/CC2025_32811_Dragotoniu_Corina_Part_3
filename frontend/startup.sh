@@ -5,4 +5,4 @@
 pip install -r requirements.txt
 
 # pornește aplicația Streamlit
-python -m streamlit.web.cli run app.py --server.port $PORT --server.address 0.0.0.0
+streamlit run app.py --server.port $PORT --server.address 0.0.0.0
