@@ -111,7 +111,6 @@ def data(user=Depends(require_auth)):
 
     raise HTTPException(status_code=403, detail="Insufficient permissions")
 
-
 @app.get("/api/history")
 def history(user=Depends(require_auth), folders_limit: int = 2):
     """Get historical energy data - admin only"""
