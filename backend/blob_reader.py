@@ -16,6 +16,7 @@ def _get_container_client():
     service = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
     return service.get_container_client(AZURE_BLOB_CONTAINER)
 
+
 def _download_json(container, blob_name: str) -> Dict[str, Any]:
     blob = container.get_blob_client(blob_name)
     raw = blob.download_blob().readall().decode("utf-8")
