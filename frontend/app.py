@@ -21,7 +21,6 @@ COGNITO_CLIENT_ID = os.getenv("COGNITO_CLIENT_ID")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
 BACKEND_URL = os.getenv("BACKEND_URL")
 
-
 missing = [k for k, v in {
     "COGNITO_DOMAIN": COGNITO_DOMAIN,
     "COGNITO_CLIENT_ID": COGNITO_CLIENT_ID,
@@ -35,7 +34,6 @@ if missing:
 
 REDIRECT_URI = REDIRECT_URI.rstrip("/")
 redirect_enc = urllib.parse.quote(REDIRECT_URI, safe="")
-
 
 AUTH_URL = (
     f"{COGNITO_DOMAIN}/oauth2/authorize"

@@ -1,11 +1,8 @@
-#!/bin/bash
+#!/bin/#!/bin/bash
+# intră în folderul frontend
 
-echo "Installing frontend requirements..."
-#pip install -r requirements.txt
+# instalează toate dependențele
+pip install -r requirements.txt
 
-# fallback port dacă $PORT nu e setat
-export PORT=${PORT:-8501}
-
-echo "Starting Streamlit app..."
-# folosim exec ca Azure să monitorizeze procesul
-exec streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+# pornește aplicația Streamlit
+streamlit run app.py --server.port $PORT --server.address 0.0.0.0

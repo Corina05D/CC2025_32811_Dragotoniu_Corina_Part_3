@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#pip install -r requirements.txt
+pip install -r requirements.txt
 
-#!/bin/bash
-export PORT=${PORT:-8000}
-exec gunicorn main:app -w 2 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT
- 
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
