@@ -1,4 +1,5 @@
 name: Deploy Full Stack to Azure
+
 on:
   push:
     branches: ["main"]
