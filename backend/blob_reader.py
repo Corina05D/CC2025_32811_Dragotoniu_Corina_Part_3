@@ -21,7 +21,6 @@ def _download_json(container, blob_name: str) -> Dict[str, Any]:
     raw = blob.download_blob().readall().decode("utf-8")
     return json.loads(raw)
 
-
 def _extract_device_total(payload: Dict[str, Any], fallback_device_id: str | None = None) -> Dict[str, Any]:
     return {
         "device_id": payload.get("device_id") or fallback_device_id,
