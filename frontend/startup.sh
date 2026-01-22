@@ -1,7 +1,11 @@
-#!/bin/#!/bin/bash
-# intră în folderul frontend
+#!/bin/bash
+# Activează virtualenv-ul creat de Oryx
+source /home/site/wwwroot/antenv/bin/activate
 
-# instalează toate dependențele
+# Asigură-te că ai ultima versiune de pip
+pip install --upgrade pip
+
+# Instalează toate dependențele
 pip install -r requirements.txt
 
 # pornește aplicația Streamlit
