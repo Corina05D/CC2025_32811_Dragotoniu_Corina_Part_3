@@ -19,23 +19,14 @@ jobs:
       - name: Install backend dependencies
         run: |
           cd backend
-          python -m venv antenv
-          source antenv/bin/activate
-          pip install --upgrade pip
           pip install -r requirements.txt
-          deactivate
-
-      - name: Zip backend for deploy
-        run: |
-          cd backend
-          zip -r ../backend.zip . -x "*.git*" "*.venv*" "*.DS_Store"
 
       - name: Deploy Backend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-backend'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
-          package: ./backend.zip
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_API }}
+          package: ./backend
 
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -52,20 +43,11 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd frontend
-          python -m venv antenv
-          source antenv/bin/activate
-          pip install --upgrade pip
           pip install -r requirements.txt
-          deactivate
-
-      - name: Zip frontend for deploy
-        run: |
-          cd frontend
-          zip -r ../frontend.zip . -x "*.git*" "*.venv*" "*.DS_Store"
 
       - name: Deploy Frontend to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-frontend'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
-          package: ./frontend.zip
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_UI }}
+          package: ./frontend
