@@ -1,11 +1,14 @@
 #!/bin/bash
-# Activează virtualenv-ul creat de Oryx
-source /home/site/wwwroot/antenv/bin/activate
+# Creează și activează mediul virtual dacă nu există
+if [ ! -d "./antenv" ]; then
+    python3 -m venv antenv
+fi
 
-# Asigură-te că ai ultima versiune de pip
+# Activează mediul virtual
+source ./antenv/bin/activate
+
+# Instalează dependențele
 pip install --upgrade pip
-
-# Instalează toate dependențele
 pip install -r requirements.txt
 
 # pornește aplicația Streamlit
