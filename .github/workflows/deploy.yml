@@ -25,7 +25,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-backend'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_API }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
           package: ./backend
 
   deploy-frontend:
@@ -49,5 +49,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'cc2025-frontend'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_UI }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
           package: ./frontend
