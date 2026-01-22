@@ -37,6 +37,7 @@ def profile(user=Depends(require_auth)):
         "device_id": user["device_id"],
     }
 
+
 @app.get("/api/data")
 def data(user=Depends(require_auth)):
     role = user.get("role")
